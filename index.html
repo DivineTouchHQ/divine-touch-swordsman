@@ -43,9 +43,8 @@ clickSound.currentTime = 0;
 clickSound.play().then(() => {
 setTimeout(() => {
 window.location.href = 'rollout.html';
-}, 150); // short delay so sound plays before navigation
+}, 150); // short delay to allow sound to play
 }).catch(() => {
-// fallback in case autoplay is blocked
 window.location.href = 'rollout.html';
 });
 }

@@ -28,9 +28,28 @@ color: white;
 </style>
 </head>
 <body>
+
 <h1>DIVINE TOUCH</h1>
 <p>Welcome to the Lobby</p>
 
-<button class="rollout-button" onclick="window.location.href='rollout.html'">The rollout</button>
+<button class="rollout-button" onclick="playClick()">The rollout</button>
+
+<audio id="click-sound" src="click.mp3" preload="auto"></audio>
+
+<script>
+function playClick() {
+const clickSound = document.getElementById('click-sound');
+clickSound.currentTime = 0;
+clickSound.play().then(() => {
+setTimeout(() => {
+window.location.href = 'rollout.html';
+}, 150); // short delay so sound plays before navigation
+}).catch(() => {
+// fallback in case autoplay is blocked
+window.location.href = 'rollout.html';
+});
+}
+</script>
+
 </body>
 </html>

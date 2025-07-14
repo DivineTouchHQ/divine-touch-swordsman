@@ -41,11 +41,13 @@ color: white;
 text-decoration: underline;
 font-size: 14px;
 }
-</style>
 <script>
 function playClickSound() {
-const click = new Audio('click.mp3');
-click.play();
+const sound = document.getElementById('clickSound');
+if (sound) {
+sound.currentTime = 0; 
+sound.play();
+}
 }
 </script>
 </head>
@@ -90,5 +92,6 @@ Welcome to the Divine Touch blueprint. This is the master vision—coded in soun
 
 <a class="back-link" href="index.html">← Back to Lobby</a>
 
+<audio id="clickSound" src="click.mp3" preload="auto"></audio>
 </body>
 </html>

@@ -42,16 +42,17 @@ text-decoration: underline;
 font-size: 14px;
 }
 </style>
+
 <script>
 function playClickSoundAndNavigate(event, url) {
-event.preventDefault(); // stop default link behavior
+event.preventDefault(); // Prevent the default link action
 const sound = document.getElementById('clickSound');
 if (sound) {
 sound.currentTime = 0;
 sound.play();
-setTimeout(() => {
+sound.onended = () => {
 window.location.href = url;
-}, 250); // delay to let the click sound be heard
+};
 } else {
 window.location.href = url; // fallback
 }
@@ -80,7 +81,7 @@ Welcome to the Divine Touch blueprint. This is the master vision—coded in soun
 <ul>
 <li><strong>100% sold:</strong> $384,107 CAD / $280,840 USD</li>
 <li><strong>Target:</strong> $250,000 CAD</li>
-<li><strong>Targeted sell through:</strong> 65.1%</li>
+<li><strong>Targeted sell through: </strong> 65.1% </li>
 </ul>
 
 <p class="section-title">What You’re Getting</p>
@@ -103,7 +104,7 @@ Welcome to the Divine Touch blueprint. This is the master vision—coded in soun
 </ul>
 
 <a class="back-link" href="index.html" onclick="playClickSoundAndNavigate(event, 'index.html')">← Back to Lobby</a>
-  
+
 <audio id="clickSound" src="click.mp3" preload="auto"></audio>
 
 </body>
